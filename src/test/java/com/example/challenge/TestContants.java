@@ -7,4 +7,5 @@ public class TestContants {
 
     public static final String TOKEN2 = "TOKEN2";
     public static final String USER_EMAIL = "user@example.com";
+    public static final String USER_NAME = "user name";
 }

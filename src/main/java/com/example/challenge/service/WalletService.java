@@ -29,7 +29,7 @@ public class WalletService {
 
     public Long createWallet(String email) throws UserNotFoundException, WalletConflictException {
         User user = userService.getUserByEmail(email)
-                .orElseThrow(() -> new UserNotFoundException("User with email " + email + " not found"));;
+                .orElseThrow(() -> new UserNotFoundException("User with email " + email + " not found"));
         if (user.getWallet() != null) {
             throw new WalletConflictException("Wallet with email " + email + " already created!");
         }
