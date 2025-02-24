@@ -20,10 +20,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @SpringBootTest
 @ActiveProfiles("test")
-public class WalletAssetControllerTest {
+public class WWalletAssetControllerTest {
     @Autowired
     private MockMvc mockMvc;
-/*
+
     @Order(1)
     @Test
     void testAddAssetToWallet() throws Exception {
@@ -56,5 +56,5 @@ public class WalletAssetControllerTest {
                 .andExpect(jsonPath("$.assets[0].quantity").value(5.5))
                 .andExpect(jsonPath("$.assets[0].price").isNumber())
                 .andExpect(jsonPath("$.assets[0].value").isNumber());
-    }*/
+    }
 }
