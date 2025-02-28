@@ -27,15 +27,11 @@ public class WWalletAssetControllerTest {
     @Order(1)
     @Test
     void testAddAssetToWallet() throws Exception {
-                mockMvc.perform(get("/wallets/1?details=true"))
-                        .andExpect(status().isOk())
-                        .andExpect(jsonPath("$.id").value("1"))
-                        .andExpect(jsonPath("$.total").isNumber())
-                        .andExpect(jsonPath("$.assets[0]").exists())
-                        .andExpect(jsonPath("$.assets[0].symbol").value("ETH"))
-                        .andExpect(jsonPath("$.assets[0].quantity").value(5.5))
-                        .andExpect(jsonPath("$.assets[0].price").isNumber())
-                        .andExpect(jsonPath("$.assets[0].value").isNumber());
+        mockMvc.perform(get("/wallets/1?details=true"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value("1"))
+                .andExpect(jsonPath("$.total").isNumber())
+                .andExpect(jsonPath("$.assets[0]").doesNotExist());
 
         String requestBody = "{\"symbol\": \"ETH\", \"quantity\": 5.5, \"price\": 3000}";
         mockMvc.perform(put("/wallets/{wallet_id}/assets", 1L)
